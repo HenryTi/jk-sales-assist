@@ -1,4 +1,4 @@
-//=== UqApp builder created on Wed Mar 10 2021 16:02:54 GMT-0500 (GMT-05:00) ===//
+//=== UqApp builder created on Mon Mar 29 2021 14:34:07 GMT+0800 (China Standard Time) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqQuery, UqID, UqIDX, UqIX } from "tonva-react";
 
@@ -33,6 +33,7 @@ export interface Param$poked {
 }
 interface Return$pokedRet {
 	poke: number;
+	$id: number;
 }
 interface Result$poked {
 	ret: Return$pokedRet[];
@@ -49,6 +50,8 @@ export interface OrderMaster {
 	id?: number;
 	no?: string;
 	customer: number;
+	$owner?: number;
+	$create?: any;
 }
 
 export interface OrderDetail {
@@ -94,30 +97,46 @@ export interface $PiecewiseDetail {
 export interface Achieve {
 	id: number;
 	saleAmount?: number;
-	deliver?: number|IDXValue;
+	deliver?: number;
 }
 
 export interface Hours {
 	id: number;
+	onsite?: number;
+	offsite?: number;
+	break?: number;
+	sick?: number;
+	over?: number;
+	noTimeLog?: number;
+}
+
+export interface ActParamAchieve {
+	id: number|IDXValue;
+	saleAmount?: number|IDXValue;
+	deliver?: number|IDXValue;
+}
+
+export interface ActParamHours {
+	id: number|IDXValue;
 	onsite?: number|IDXValue;
 	offsite?: number|IDXValue;
 	break?: number|IDXValue;
 	sick?: number|IDXValue;
 	over?: number|IDXValue;
-	noTimeLog?: number;
+	noTimeLog?: number|IDXValue;
 }
 
 export interface CustomerTag {
+	ix: number;
 	id: number;
-	id2: number;
 }
 
 export interface UserStaff {
+	ix: number;
 	id: number;
-	id2: number;
 }
 
-export interface ParamIDActs {
+export interface ParamActs {
 	customer?: Customer[];
 	orderMaster?: OrderMaster[];
 	orderDetail?: OrderDetail[];
@@ -125,15 +144,15 @@ export interface ParamIDActs {
 	staff?: Staff[];
 	$Piecewise?: $Piecewise[];
 	$PiecewiseDetail?: $PiecewiseDetail[];
-	achieve?: Achieve[];
-	hours?: Hours[];
+	achieve?: ActParamAchieve[];
+	hours?: ActParamHours[];
 	customerTag?: CustomerTag[];
 	userStaff?: UserStaff[];
 }
 
 
 export interface UqExt extends Uq {
-	IDActs(param:ParamIDActs): Promise<any>;
+	Acts(param:ParamActs): Promise<any>;
 
 	$sheet: UqTuid<Tuid$sheet>;
 	$user: UqTuid<Tuid$user>;
