@@ -9,9 +9,10 @@ function caption(label:string|JSX.Element, icon:string) {
 
 export class VMain extends VPage<CApp> {
 	protected get tabsProps(): TabsProps {
-		let { cHome, cBug, cMe, cUI } = this.controller;
+		let { cHome, cCustomer, cBug, cMe, cUI } = this.controller;
 		let tabs: TabProp[] = [
 			{name: 'home', caption: caption(t('home'), 'home'), content: cHome.tab},
+			{name: 'customer', caption: caption(t('customer'), 'user'), content: cCustomer.tab},
 			{name: 'me', caption: caption(t('me'), 'user-o'), content: cMe.tab, load: cMe.load},
 		];
 		if (this.isDev === true) {
