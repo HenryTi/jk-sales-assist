@@ -1,6 +1,6 @@
 //=== UqApp builder created on Tue Jan 12 2021 23:14:51 GMT-0500 (GMT-05:00) ===//
 import { AppConfig, DevConfig, env } from "tonva-react";
-import { AppEnv } from "./model/sales";
+import { AppEnv } from "../model/sales";
 
 const bz: DevConfig = {
 	name: 'bizdev',

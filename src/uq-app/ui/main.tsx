@@ -2,7 +2,7 @@ import * as React from 'react';
 import { VPage, TabCaptionComponent, Page, Image } from "tonva-react";
 import { observable } from 'mobx';
 import { setting } from "uq-app/appConfig";
-import { browser } from 'uq-app/tools/browser';
+import { browser } from 'tools/browser';
 import { CApp } from 'uq-app/CApp';
 /* eslint-disable */
 const color = (selected: boolean) => selected === true ? 'text-primary' : 'text-muted';
